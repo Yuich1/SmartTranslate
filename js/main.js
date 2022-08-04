@@ -3,7 +3,7 @@
  * @version 1.0.0
  */
 
-const API_URL = "https://smarttranslateserver.herokuapp.com/translate";
+const API_URL = "https://smarttranslateserver.herokuapp.com";
 //const API_URL = "http://localhost:8080";
 let APICallCount = 0;
 let sourceLang = "en";
