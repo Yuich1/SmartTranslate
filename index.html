@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Translate</title>
+  <meta name="title" content="Smart Translate" />
+  <meta name="description" content="みんなの自動翻訳＠TexTra®を利用した、改行が消えてくれる翻訳ツール" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="shortcut icon" href="./images/icon/favicon.ico" />
+  <!--  css更新時はverを変更する  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script defer src="./js/main.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Smart Translate (Powered by NICT)</h1>
+      <div><a href="https://mt-auto-minhon-mlt.ucri.jgn-x.jp/" target="_blank">みんなの自動翻訳＠TexTra®</a>を利用した、改行が消えてくれる翻訳ツール
+      </div>
+    </header>
+    <div class="wrapper">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header">
+              <ul class="nav nav-tabs">
+                <li>
+                  <h2 class="box-title">翻訳する文章（英語）</h2>
+                </li>
+                <li>
+                  <!--
+                  <div class="form-group">
+                    <select class="form-control input-sm" id="source-lang">
+                      <option value="it">イタリア語</option>
+                      <option value="et">エストニア語</option>
+                      <option value="nl">オランダ語</option>
+                      <option value="el">ギリシャ語</option>
+                      <option value="sv">スウェーデン語</option>
+                      <option value="es">スペイン語</option>
+                      <option value="sk">スロバキア語</option>
+                      <option value="sl">スロベニア語</option>
+                      <option value="cs">チェコ語</option>
+                      <option value="da">デンマーク語</option>
+                      <option value="de">ドイツ語</option>
+                      <option value="hu">ハンガリー語</option>
+                      <option value="fi">フィンランド語</option>
+                      <option value="fr">フランス語</option>
+                      <option value="bg">ブルガリア語</option>
+                      <option value="pl">ポーランド語</option>
+                      <option value="pt">ラトビア語</option>
+                      <option value="lv">リトアニア語</option>
+                      <option value="lt">ルーマニア語</option>
+                      <option value="ro">ロシア語</option>
+                      <option value="en" selected>英語</option>
+                      <option value="zh">中国語</option>
+                      <option value="ja">日本語</option>
+                    </select>
+                  </div>
+                  -->
+                </li>
+              </ul>
+            </div>
+            <form>
+              <div class="form-group">
+                <textarea class="form-control" id="text" rows="29"></textarea>
+                <button type="button" class="close" id="textReset">&times;</button>
+              </div>
+            </form>
+            <!--<p id="text-length">文字数</p>-->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header">
+              <ul class="nav nav-tabs">
+                <li>
+                  <h2 class="box-title">翻訳結果（日本語）</h2>
+                </li>
+                <li>
+                  <div id="loading" class="loader">Loading...</div>
+                </li>
+                <li>
+                  <!--
+                  <div class="form-group">
+                    <select class="form-control input-sm" id="target-lang">
+                      <option value="it">イタリア語</option>
+                      <option value="et">エストニア語</option>
+                      <option value="nl">オランダ語</option>
+                      <option value="el">ギリシャ語</option>
+                      <option value="sv">スウェーデン語</option>
+                      <option value="es">スペイン語</option>
+                      <option value="sk">スロバキア語</option>
+                      <option value="sl">スロベニア語</option>
+                      <option value="cs">チェコ語</option>
+                      <option value="da">デンマーク語</option>
+                      <option value="de">ドイツ語</option>
+                      <option value="hu">ハンガリー語</option>
+                      <option value="fi">フィンランド語</option>
+                      <option value="fr">フランス語</option>
+                      <option value="bg">ブルガリア語</option>
+                      <option value="pl">ポーランド語</option>
+                      <option value="pt">ラトビア語</option>
+                      <option value="lv">リトアニア語</option>
+                      <option value="lt">ルーマニア語</option>
+                      <option value="ro">ロシア語</option>
+                      <option value="en">英語</option>
+                      <option value="zh">中国語</option>
+                      <option value="ja" selected>日本語</option>
+                    </select>
+                  </div>
+                  -->
+                </li>
+              </ul>
+            </div>
+            <form>
+              <div class="form-group">
+                <textarea class="form-control" rows="29" id="translated" readonly></textarea>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description">
+      <h3 class="title">細かい話</h3>
+      <div>
+        ・2連続以上の空白は消えるよ<br>
+        ・文末以外は改行が消えるよ<br>
+        ・3500字程度に区切って翻訳しているよ<br>
+        ・英→日しか対応してないよ<br>
+      </div>
+    </div>
+  </div>
+  <!-- Modal content -->
+  <div id="modal" class="modal fade" data-keybord="false" data-backdrop="static" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          利用規約
+        </div>
+        <div class="modal-body">
+          <div id="gameView">
+            「アプリケーション利用者向け制限事項」<br>
+            １　アプリケーション利用者は、商用目的や公序良俗に反する目的のためにアプリケーションを利用することはできません。ただし、アプリケーションを利用して、Wikipedia等のCreative Commons
+            License の文書や、 GNU General Public License, MIT License, Apache License, BSD License
+            等のオープンソースソフトウェアの文書等の公益性が高い文書であって、アプリケーション利用者がその文書の自動翻訳結果や修正結果を利用者や目的の制限なく一般に無償公開する場合には、当該文書のライセンスが当該文書の利用の目的や範囲等を限定していない場合であっても、これによらず利用できます。<br>
+            ２　アプリケーションの不適切な利用が発見された場合には、予告無しにアプリケーションの機能を制限することがあります。<br>
+            ３　利用回数に上限が設けられることがあります。<br>
+            ４　自動翻訳サービス（以下「本サービス」という。）の提供期間は保証されません。<br>
+            ５　自動翻訳のために入力されたテキストや用語や対訳等の情報の一切については情報通信研究機構（以下「NICT」という。）のサーバーに記録されます。このNICTのサーバーに記録されたデータは、NICTにおいて自動翻訳技術の改良のために利用される場合があります。その場合、入力テキストや対訳がそのまま公開されることはありません。また本サービスに個人情報やプライバシーを含む情報、営業秘密等、第三者に対して秘密にしておく必要がある情報は入力しないでください。<br>
+            <br>
+            「免責事項」<br>
+            １　情報通信研究機構（以下「NICT」という。）は、自動翻訳サービス（以下「本サービス」という。）を利用した自動翻訳結果の正確性を保証するものではありません。<br>
+            ２　本サービスや関連するソフトウェア又はドキュメントの使用により利用者等に損害が生じた場合でもNICTは一切責任を負いません。<br>
+            ３　NICTは、日本を含む全ての国や地域で本サービスや関連するソフトウェア又はドキュメントの利用が合法であることを保証するものではありません。<br>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="agreeButton" class="btn btn-primary" data-dismiss="modal">同意する</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+</body>
